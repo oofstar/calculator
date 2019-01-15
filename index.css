@@ -1,0 +1,29 @@
+.button, .numButton {
+  height: 100px;
+  width: 100px;
+  margin: 3px;
+  background-color: pink;
+  display: inline-block;
+  font-size: 5em;
+  text-align: center;
+}
+
+#button-area {
+  padding-top: 35px;
+}
+
+#calculator {
+  width: 500px;
+  height: 600px;
+  border: solid;
+  text-align: center;
+}
+
+#display {
+  height: 100px;
+  width: 100%;
+  background-color: gray;
+  font-size: 5em;
+  text-align: right;
+
+}
