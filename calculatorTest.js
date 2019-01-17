@@ -1,8 +1,5 @@
-//where you are at 1/17/19
-// need to add error message for divide by 0
-
 //type this into console to check connection
-const testStrip = "this page is connected to calculator.js";
+const testStrip = "this page is connected to calculatorTest.js";
 
 // declared variables for functions
 let displayValue = "";
