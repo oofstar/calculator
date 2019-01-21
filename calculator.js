@@ -16,11 +16,15 @@ const equation = document.getElementById("equation");
 const numButtons = document.querySelectorAll(".numButton");
 const clearButton = document.getElementById("clearButton");
 const calculateButton = document.getElementById("calculateButton");
-
+const backspaceButton = document.getElementById("backspaceButton");
 // event listeners
 
 calculateButton.addEventListener("click", (e) => {
   calculate(equationValue);
+})
+
+backspaceButton.addEventListener("click", (e) => {
+  backspace();
 })
 
 clearButton.addEventListener("click", (e) => {
@@ -33,6 +37,8 @@ numButtons.forEach((button) => {
     buttonPress(button.innerText);
   });
 })
+
+
 
 //basic arithmetic functions
 function add(a, b) {
@@ -77,10 +83,24 @@ function operate(operator, a, b) {
 
 //functions for button presses
 function buttonPress(value) {
-  displayValue += value;
-  equationValue += value;
-  display.innerText = displayValue;
-  equation.innerText = equationValue;
+  if (value === "0" && displayValue.endsWith("/")) {
+    alert("You can't divide by 0, sorry.");
+  } else {
+
+    displayValue += value;
+    equationValue += value;
+    display.innerText = displayValue;
+    equation.innerText = equationValue;
+  }
+}
+
+function backspace() {
+  if (typeof displayValue === "string") {
+    displayValue = displayValue.slice(0, -1);
+    equationValue = equationValue.slice(0, -1);
+    display.innerText = displayValue;
+    equation.innerText = equationValue;
+  }
 }
 
 function clearDisplay() {
