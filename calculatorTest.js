@@ -1,8 +1,5 @@
-//where you are at 1/17/19
-// need to add error message for divide by 0
-
 //type this into console to check connection
-const testStrip = "this page is connected to calculator.js";
+const testStrip = "this page is connected to calculatorTest.js";
 
 // declared variables for functions
 let displayValue = "";
@@ -16,15 +13,11 @@ const equation = document.getElementById("equation");
 const numButtons = document.querySelectorAll(".numButton");
 const clearButton = document.getElementById("clearButton");
 const calculateButton = document.getElementById("calculateButton");
-const backspaceButton = document.getElementById("backspaceButton");
+
 // event listeners
 
 calculateButton.addEventListener("click", (e) => {
   calculate(equationValue);
-})
-
-backspaceButton.addEventListener("click", (e) => {
-  backspace();
 })
 
 clearButton.addEventListener("click", (e) => {
@@ -37,8 +30,6 @@ numButtons.forEach((button) => {
     buttonPress(button.innerText);
   });
 })
-
-
 
 //basic arithmetic functions
 function add(a, b) {
@@ -83,24 +74,10 @@ function operate(operator, a, b) {
 
 //functions for button presses
 function buttonPress(value) {
-  if (value === "0" && displayValue.endsWith("/")) {
-    alert("You can't divide by 0, sorry.");
-  } else {
-
-    displayValue += value;
-    equationValue += value;
-    display.innerText = displayValue;
-    equation.innerText = equationValue;
-  }
-}
-
-function backspace() {
-  if (typeof displayValue === "string") {
-    displayValue = displayValue.slice(0, -1);
-    equationValue = equationValue.slice(0, -1);
-    display.innerText = displayValue;
-    equation.innerText = equationValue;
-  }
+  displayValue += value;
+  equationValue += value;
+  display.innerText = displayValue;
+  equation.innerText = equationValue;
 }
 
 function clearDisplay() {
